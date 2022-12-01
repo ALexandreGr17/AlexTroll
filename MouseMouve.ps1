@@ -1,7 +1,7 @@
 $MYJOB = Start-Job -ScriptBlock {
 
 $MOVEMENTSIZE = 1000
-$SLEEPTIME = 5
+$SLEEPTIME = 1
 
 Add-Type -AssemblyName System.Windows.Forms
 while ($true) {
