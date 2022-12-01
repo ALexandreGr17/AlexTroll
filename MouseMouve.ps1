@@ -1,15 +1,15 @@
 $MYJOB = Start-Job -ScriptBlock {
 
-$MOVEMENTSIZE = 1000
-$SLEEPTIME = 1
+$MOVEMENTSIZE = 500
+$SLEEPTIME = 500
 
 Add-Type -AssemblyName System.Windows.Forms
 while ($true) {
 $POSITION = [Windows.Forms.Cursor]::Position
-$POSITION.x += $MOVEMENTSIZE
-$POSITION.y += $MOVEMENTSIZE
+$POSITION.x += ($MOVEMENTSIZE + Get-Random -Maximum 500 -Minimum -500)
+$POSITION.y += ($MOVEMENTSIZE + Get-Random -Maximum 500 -Minimum -500)
 [Windows.Forms.Cursor]::Position = $POSITION
-Start-Sleep -Seconds $SLEEPTIME
+Start-Sleep -Milliseconds $SLEEPTIME
 $POSITION = [Windows.Forms.Cursor]::Position
 $POSITION.x -= $MOVEMENTSIZE
 $POSITION.y -= $MOVEMENTSIZE
